@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* to avoid text being highlight */
+    user-select: none;
+    font-family: 'Lato', sans-serif;
+    text-decoration: none;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+#game {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: rgb(213, 64, 34);
+    background: linear-gradient(180deg, rgba(213, 64, 34, 1) 0%, rgba(232, 201, 154, 1) 65%);
+}
+
+#score {
+    position: absolute;
+    font-size: 3vmin;
+    right: 1vmin;
+    top: 1vmin;
+    color: #EEEEEE;
+}
+
+#start-screen {
+    position: absolute;
+    font-size: 5vmin;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+#hide {
+    display: none;
+}
+
+#ground-background {
+    left: 0;
+    position: absolute;
+    background-image: url('./assets/ground2.jpg');
+    background-size: cover;
+    width: 400%;
+    min-height: 20vh;
+    bottom: 0;
+    animation: ground 3.5s infinite linear;
+    background-repeat: repeat-x;
+
+}
+
+#player {
+    position: absolute;
+    min-height: 100px;
+    width: 100px;
+    background-color: black;
+    left: 100px;
+    bottom: 240px;
+}
+
+.obstacles {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    background-color: rgb(82, 12, 12);
+    right: 100px;
+    bottom: 240px;
+    animation: block 2s infinite linear;
+}
+
+
+#game-background {
+    position: absolute;
+    background-image: url('./assets/buildings2.png');
+    background-size: cover;
+    height: 60vh;
+    bottom: 20vh;
+    left: 0%;
+    width: 300%;
+    opacity: 80%;
+    animation: buildings 30s infinite linear;
+    background-repeat: repeat-x;
+}
+
+.animate {
+    animation: jump 500ms ease-in-out;
+    position: absolute;
+    bottom: 300px;
+
+}
+
+.buttons a {
+    margin: 20px 0;
+    color: #EEEEEE;
+    padding: 10px 30px;
+    font-size: 20px;
+    background-color: #b53c00;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.buttons a:hover {
+    background-color: #ff5e00;
+    color: #868686;
+    transition: 0.4s;
+}
+
+.buttons {
+    margin: 20px;
+}
+
+@keyframes block {
+    0% {
+        left: 100%;
+    }
+
+    100% {
+        left: -70px;
+    }
+}
+
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+
+    30% {
+        transform: translateY(-300px);
+    }
+
+    70% {
+        transform: translateY(-300px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes ground {
+    100% {
+        transform: translateX(-4000px);
+    }
+}
+
+@keyframes buildings {
+    100% {
+        transform: translateX(-2400px);
+    }
+}

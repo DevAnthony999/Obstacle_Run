@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    text-decoration: none;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
+    background: rgb(213, 64, 34);
+    background: linear-gradient(180deg, rgba(213, 64, 34, 1) 0%, rgba(232, 201, 154, 1) 65%);
+}
+
+#game {
+    z-index: 1;
+}
+
+#ground-background {
+    left: 0;
+    position: absolute;
+    background-image: url('./assets/ground2.jpg');
+    background-size: cover;
+    width: 400%;
+    height: 20vh;
+    bottom: 0;
+}
+
+
+#game-background {
+    position: absolute;
+    background-image: url('./assets/buildings2.png');
+    background-size: cover;
+    height: 60vh;
+    bottom: 20vh;
+    left: 0;
+    width: 200%;
+    opacity: 80%;
+    z-index: -1;
+}
+
+#menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    z-index: 1;
+    flex-direction: column;
+    margin-top: 100px;
+}
+
+h1 {
+    font-size: 10vmin;
+    color: #EEEEEE;
+}
+
+h2 {
+    font-size: 5vmin;
+    color: #EEEEEE;
+}
+
+#menu a {
+    margin: 20px 0;
+    color: #EEEEEE;
+    padding: 10px 30px;
+    font-size: 20px;
+    background-color: #b53c00;
+    border-radius: 5px;
+}
+
+#menu a:hover {
+    background-color: #ff5e00;
+    color: #868686;
+    transition: 0.4s;
+}
