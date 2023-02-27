@@ -7,17 +7,15 @@
 }
 
 body {
-    margin: 0;
-    width: 100%;
-    height: 100vh;
-    min-height: 100vh;
-    overflow: hidden;
-    background: rgb(213, 64, 34);
-    background: linear-gradient(180deg, rgba(213, 64, 34, 1) 0%, rgba(232, 201, 154, 1) 65%);
-}
 
-#game {
-    z-index: 1;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
 }
 
 #ground-background {
@@ -25,7 +23,7 @@ body {
     position: absolute;
     background-image: url('./assets/ground2.jpg');
     background-size: cover;
-    width: 400%;
+    width: 100%;
     height: 20vh;
     bottom: 0;
 }
@@ -33,14 +31,30 @@ body {
 
 #game-background {
     position: absolute;
+    background: rgb(213, 64, 34);
+    background: linear-gradient(180deg, rgba(213, 64, 34, 1) 0%, rgba(232, 201, 154, 1) 65%);
     background-image: url('./assets/buildings2.png');
     background-size: cover;
     height: 60vh;
     bottom: 20vh;
     left: 0;
-    width: 200%;
+    width: 100%;
     opacity: 80%;
     z-index: -1;
+
+}
+
+#game-background2 {
+    position: absolute;
+    background: rgb(213, 64, 34);
+    background: linear-gradient(180deg, rgba(213, 64, 34, 1) 0%, rgba(232, 201, 154, 1) 65%);
+    height: 60vh;
+    bottom: 20vh;
+    left: 0;
+    width: 100%;
+    opacity: 80%;
+    z-index: -2;
+
 }
 
 #menu {
@@ -48,10 +62,10 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100%;
-    z-index: 1;
     flex-direction: column;
     margin-top: 100px;
 }
+
 
 h1 {
     font-size: 10vmin;
@@ -64,7 +78,7 @@ h2 {
 }
 
 #menu a {
-    margin: 20px 0;
+    margin-top: 20px;
     color: #EEEEEE;
     padding: 10px 30px;
     font-size: 20px;
@@ -76,4 +90,11 @@ h2 {
     background-color: #ff5e00;
     color: #868686;
     transition: 0.4s;
+}
+
+#menu p {
+    width: 50%;
+    font-size: 1.5vmin;
+    color: #EEEEEE;
+    text-align: center;
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" onclick="jump()">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -7,16 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./game-style.css">
-    <script src="./game-script.js" defer></script>
+    <script src="./player.js" defer></script>
+    <script src="./obstacles.js" defer></script>
+    <script src="./main.js" defer></script>
+
 </head>
 
 <body>
+    <canvas id="canvas1"></canvas>
     <div id="game">
         <div class="buttons">
             <a href="./index.html">Exit </a>
             <a href="">Restart </a>
         </div>
         <div id="score">0</div>
+        <div id="end-display">
+            <a href="">Restart </a>
+        </div>
         <div id="ground-background"></div>
         <div id="game-background"></div>
         <div id="player"></div>
