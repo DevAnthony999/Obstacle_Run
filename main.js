@@ -1,8 +1,9 @@
+// ctx will allow built in canvass methods.
+
 const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
 canvas.width = 1920;
 canvas.height = 1080;
-
 let userClick = false;
 let frame = 0;
 let score = 0;
@@ -22,15 +23,6 @@ const BB = {
     height: 500,
 }
 
-function handleBuildingsBackground() {
-    if (BB.x1 <= -BB.width + backgroundSpeed) BB.x1 = BB.width;
-    else BB.x1 -= backgroundSpeed;
-    if (BB.x2 <= -BB.width + backgroundSpeed) BB.x2 = BB.width;
-    else (BB.x2 -= backgroundSpeed);
-    ctx.drawImage(buildingsBackground, BB.x1, BB.y, BB.width, BB.height)
-    ctx.drawImage(buildingsBackground, BB.x2, BB.y, BB.width, BB.height)
-}
-
 const groundBackground = new Image();
 groundBackground.src = './assets/ground3.jpg';
 const GB = {
@@ -41,21 +33,16 @@ const GB = {
     height: 300,
 }
 
-function handleGroundBackground() {
-    ctx.drawImage(groundBackground, GB.x1, GB.y, GB.width, GB.height)
-    ctx.drawImage(groundBackground, GB.x2, GB.y, GB.width, GB.height)
-}
 
 // clearRect is to clear the entire canvass between every frame of animation
 // requestanimationframe is a recursion which calls itself repeatedly all over again
 // fillRect(position x, position y, width, height)
+// frame ++ will increase frame count by 1 for every animation loop
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     updateGameSpeed();
     handleBuildingsBackground();
     handleGroundBackground()
-
-    // ctx.fillRect(200, groundLevel - 100, 100, 100);
     movementObstacles();
     player.update();
     player.draw();
@@ -64,10 +51,7 @@ function animate() {
     if (hitCollisions()) return
     requestAnimationFrame(animate);
     frame++;
-    // console.log(gamespeed);
-    // console.log(divisibleObstacle);
 }
-
 animate();
 
 // (type of event, call back function that runs everytime that particular event occurs)
@@ -75,9 +59,6 @@ animate();
 window.addEventListener('mousedown', function (e) {
     userClick = true;
 });
-
-// const hitImage = new Image();
-// hit.src = 'assets/hit.png';
 
 function hitCollisions() {
     for (let i = 0; i < obstaclesArray.length; i++) {
@@ -87,7 +68,6 @@ function hitCollisions() {
             player.y + player.height < canvas.height
         ) {
             // ctx.drawImage(hitImage, player.x, player.y, 50, 50);
-
             ctx.font = '50px Lato';
             ctx.fillStyle = 'white'
             ctx.fillText('Game Over! Your score is ' + displayScore.innerText, canvas.width / 3, canvas.height / 2);
@@ -100,7 +80,6 @@ function hitCollisions() {
 function showScore() {
     Math.ceil(score++);
     displayScore.innerText = score;
-
 }
 
 function updateGameSpeed() {
@@ -109,8 +88,19 @@ function updateGameSpeed() {
     }
 }
 
+function handleBuildingsBackground() {
+    if (BB.x1 <= -BB.width + backgroundSpeed) BB.x1 = BB.width;
+    else BB.x1 -= backgroundSpeed;
+    if (BB.x2 <= -BB.width + backgroundSpeed) BB.x2 = BB.width;
+    else (BB.x2 -= backgroundSpeed);
+    ctx.drawImage(buildingsBackground, BB.x1, BB.y, BB.width, BB.height)
+    ctx.drawImage(buildingsBackground, BB.x2, BB.y, BB.width, BB.height)
+}
 
-
+function handleGroundBackground() {
+    ctx.drawImage(groundBackground, GB.x1, GB.y, GB.width, GB.height)
+    ctx.drawImage(groundBackground, GB.x2, GB.y, GB.width, GB.height)
+}
 
 
 
